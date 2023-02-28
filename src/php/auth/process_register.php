@@ -15,9 +15,11 @@
 
     $sql = "INSERT INTO users (name, email, passwd) VALUES ('$username', '$email', '$passwd')";
 
-    if (mysqli_query($conn, $sql)) {
-        header('Location: /exec2/src/php/auth/login.php');
-    }
+    if ($username != '' && $email != '' && $passwd != '') {
+        if (mysqli_query($conn, $sql)) {
+            header('Location: /exec2/src/php/');
+        }
+    } else { header('Location: /exec2/src/php/'); }
     
     $conn->close();   
 

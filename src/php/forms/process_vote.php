@@ -12,9 +12,9 @@
     $user_id = $_SESSION["id"];
     $photo_id = $_POST['photo_id'];
 
-    $sql = "SELECT * FROM votes WHERE user_id = '$user_id'";
+    $sql = "SELECT * FROM votes WHERE user_id = $user_id";
 
-    if (!mysqli_query($conn, $sql)) {
+    if (mysqli_num_rows(mysqli_query($conn, $sql)) == 0) {
 
         $sql = "INSERT INTO votes (user_id, photo_id) VALUES ('$user_id', '$photo_id')";
 
